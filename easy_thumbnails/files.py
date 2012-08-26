@@ -251,6 +251,7 @@ class Thumbnailer(File):
         self.thumbnail_storage = thumbnail_storage
         self.remote_source = remote_source
         self.alias_target = None
+        self.mode = None
 
         # Set default properties. For backwards compatibilty, check to see
         # if the attribute exists already (it could be set as a class property
