@@ -442,7 +442,7 @@ class Thumbnailer(File):
     def get_source_modtime(self):
         try:
             path = self.source_storage.path(self.name)
-            return os.path.getmtime(path)
+            return os.path.getmtime(str(path))
         except OSError:
             return 0
         except NotImplementedError:
@@ -459,7 +459,7 @@ class Thumbnailer(File):
 
     def open(self, mode=None):
         if self.closed:
-            self.file = self.source_storage.open(self.name,
+            self.file = self.source_storage.open(str(self.name),
                 mode or self.mode or 'rb')
         else:
             self.seek(0)

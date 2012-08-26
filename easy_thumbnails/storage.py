@@ -18,3 +18,5 @@ class ThumbnailFileSystemStorage(FileSystemStorage):
             base_url = settings.THUMBNAIL_MEDIA_URL or None
         super(ThumbnailFileSystemStorage, self).__init__(location, base_url,
             *args, **kwargs)
+    def path(self, name):
+        return str('%s/%s' % (self.location, name))
